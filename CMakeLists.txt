@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-set(PROJ_NAME peakwork_challange)
+set(PROJ_NAME peakwork_challenge)
 project(${PROJ_NAME} CXX)
 
 set(CMAKE_CXX_STANDARD 17)
