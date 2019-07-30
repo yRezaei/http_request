@@ -1,0 +1,11 @@
+[requires]
+jsoncpp/1.9.0@theirix/stable
+libcurl/7.64.1@bincrafters/stable
+
+[generators]
+cmake
+
+[imports]
+bin, *.dll -> ./bin
+lib, *.dylib* -> ./bin
+lib, *.so* -> ./bin
