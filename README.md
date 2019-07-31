@@ -1,4 +1,6 @@
-# Peakwork Development Challenge - C++
+# Stock check
+A C++ web service example using libcurl and Jasoncpp library.
+
 ## Required
     1. Visual Studio (V16) / GCC (V7.X)
     2. CMake (V3.x)
@@ -26,5 +28,5 @@ cmake --build . --config Release/Debug
 ## How to run
 ```
 cd build/bin
-peakwork_challange <symbol> <iex_secret_token>
+stock_check <symbol> <iex_secret_token>
 ```
