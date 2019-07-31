@@ -5,7 +5,7 @@
 #include <curl/curl.h>
 #include <iostream>
 
-#define IEX_ENDPOINT "https://cloud.iexapis.com/beta/stock/"
+#define IEX_BASE_URL "https://cloud.iexapis.com/beta/stock/";
 
 namespace iex::stocks
 {
@@ -44,7 +44,8 @@ namespace internal_commands
 static std::size_t curl_callback(const char *in, std::size_t size, std::size_t num, std::string *out)
 {
     const std::size_t totalBytes(size * num);
-    out->append(in, totalBytes);
+    if(totalBytes != 0)
+        out->append(in, totalBytes);
     return totalBytes;
 }
 
@@ -59,20 +60,19 @@ static void send_get_request(Json::Value &jason_data, const std::string url)
     curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
     long int httpCode(0);
 
-    std::unique_ptr<std::string> httpData(new std::string);
+    //std::unique_ptr<std::string> http_data(new std::string);
+    std::string http_data;
 
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, curl_callback);
-    curl_easy_setopt(curl, CURLOPT_WRITEDATA, httpData.get());
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &http_data);
     curl_easy_perform(curl);
     curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &httpCode);
     curl_easy_cleanup(curl);
 
-    if (httpData && httpData.get())
+    if (!http_data.empty())
     {
-        std::stringstream ss;
-        ss.str(*httpData);
-        if (!(ss >> jason_data))
-            std::cerr << "Error in 'iex::stocks::sendGetRequest' -> Received data can not be written into Jason file 'Json::Value'." << std::endl;
+        Json::Reader jsonReader;
+        jsonReader.parse(http_data, jason_data);
     }
     else
     {
@@ -83,7 +83,7 @@ static void send_get_request(Json::Value &jason_data, const std::string url)
 
 static CompanyData get_company(const std::string stock_symbol, const std::string &secret_token)
 {
-    std::string url = IEX_ENDPOINT;
+    std::string url = IEX_BASE_URL;
     url += std::string(stock_symbol) + "/company/5y?token=" + secret_token;
 
     Json::Value jason_data;
@@ -115,7 +115,7 @@ static CompanyData get_company(const std::string stock_symbol, const std::string
 
 static CompanyLogoData get_company_logo(const std::string &stock_symbol, const std::string &secret_token)
 {
-    std::string url = IEX_ENDPOINT;
+    std::string url = IEX_BASE_URL;
     url += stock_symbol + "/logo/5y?token=" + secret_token;
 
     Json::Value json_data;
@@ -131,7 +131,7 @@ static CompanyLogoData get_company_logo(const std::string &stock_symbol, const s
 
 static PriceData get_price(const std::string stock_symbol, const std::string &secret_token)
 {
-    std::string url = IEX_ENDPOINT;
+    std::string url = IEX_BASE_URL;
     url += std::string(stock_symbol) + "/price/5y?token=" + secret_token;
 
     Json::Value jason_data;
