@@ -1,16 +1,17 @@
 #include <string>
 #include <iostream>
+#include <iomanip>
 #include "iex.hpp"
 
 int main(int argc, char const *argv[])
 {
     std::string symbol;
-    std::string tocken;
+    std::string token;
     switch (argc)
     {
     case 3:
         symbol = argv[1];
-        tocken = argv[2];
+        token = argv[2];
         break;
 
     default:
@@ -20,15 +21,14 @@ int main(int argc, char const *argv[])
             break;
     }
 
+    auto com = iex::stocks::get_company(symbol, token);
+    auto logo = iex::stocks::get_company_logo(symbol, token);
+    auto price = iex::stocks::get_price(symbol, token);
 
-    auto com = iex::stocks::get_company(symbol, tocken);
-    std::cout << "Company name: " << com.company_name << std::endl;
-
-    auto logo = iex::stocks::get_company_logo(symbol, tocken);
-    std::cout << "Company logo: " << logo.logo_url << std::endl;
-
-    auto price = iex::stocks::get_price(symbol, "pk_2223eab4b940493eb33d2fe4d6375e25");
-    std::cout << "Company price: " << price.latest_price << std::endl;
+    std::cout << "Company:\n" << std::left
+        << '\t' << std::setw(15) << "Name: " << com.company_name << '\n'
+        << '\t' << std::setw(15) << "logo URL: " << logo.logo_url << '\n'
+        << '\t' << std::setw(15) << "Price: " << price.latest_price << std::endl;
 
     return 0;
 }
