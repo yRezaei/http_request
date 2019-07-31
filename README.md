@@ -22,5 +22,5 @@ cmake --build . --config Release/Debug
 ## How to run
 ```
 cd build/bin
-peakwork_challange.exe / peakwork_challange
+peakwork_challange <symbol> <iex_secret_token>
 ```
