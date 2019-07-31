@@ -4,6 +4,10 @@
     2. CMake (V3.x)
     3. Python (V3.x)
     4. Conan package manager
+    
+### Conan packages
+    1. jsoncpp/1.9.0@theirix/stable
+    2. libcurl/7.64.1@bincrafters/stable
 
 ## Important note
 Make sure the bincrafters repository is added to the conan remote list
