@@ -28,5 +28,5 @@ cmake --build . --config Release/Debug
 ## How to run
 ```
 cd build/bin
-stock_check <symbol> <iex_secret_token>
+iex_stock_check <symbol> <iex_secret_token>
 ```
