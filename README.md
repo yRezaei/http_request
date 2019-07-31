@@ -1,7 +1,7 @@
 # Stock check
 A C++ web service example using libcurl and Jasoncpp library.
 
-## Required
+## Requirments
     1. Visual Studio (V16) / GCC (V7.X)
     2. CMake (V3.x)
     3. Python (V3.x)
