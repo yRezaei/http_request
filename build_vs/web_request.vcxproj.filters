@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\cpp-projects\web_request\src\main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\cpp-projects\web_request\src\web_request.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\cpp-projects\web_request\include\web_request.hpp">
+      <Filter>Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\cpp-projects\web_request\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header">
+      <UniqueIdentifier>{C537AB13-F0E2-357C-B22B-483C683A5482}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4938CF3D-641E-3FC0-9B81-D579D5CC73CE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

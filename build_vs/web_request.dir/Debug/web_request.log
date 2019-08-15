@@ -1,0 +1,5 @@
+﻿  main.cpp
+  web_request.cpp
+  Generating Code...
+D:\cpp-projects\web_request\include\web_request.hpp(31): warning C4715: 'http::method_to_string': not all control paths return a value
+  web_request.vcxproj -> D:\cpp-projects\web_request\build_vs\bin\web_request.exe

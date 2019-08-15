@@ -1,5 +1,5 @@
 # Stock check
-A C++ web service example using libcurl and Jasoncpp library.
+A C++ web request example using libcurl and Jasoncpp library.
 
 ## Requirments
     1. Visual Studio (V16) / GCC (V7.X)
@@ -28,5 +28,5 @@ cmake --build . --config Release/Debug
 ## How to run
 ```
 cd build/bin
-iex_stock_check <symbol> <iex_secret_token>
+web_request <url> <http_method> <message>
 ```
