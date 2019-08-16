@@ -1,5 +1,5 @@
-# Stock check
-A C++ web request example using libcurl and Jasoncpp library.
+# HTTP request
+A C++ http request example using libcurl and Jasoncpp library.
 
 ## Requirments
     1. Visual Studio (V16) / GCC (V7.X)
@@ -28,5 +28,5 @@ cmake --build . --config Release/Debug
 ## How to run
 ```
 cd build/bin
-web_request <url> <http_method> <message>
+http_request <url> <http_method> <message>
 ```
